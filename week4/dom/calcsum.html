@@ -1,0 +1,91 @@
+<html>
+    <script>
+        function populateDiv(){
+            const element = document.getElementById("finalSum")
+            const a = document.getElementById("first").value;
+            const b = document.getElementById("second").value;
+            //GET ELEMENT BY FETCH
+            // fetch("URL/sum?a="+a+"&b="+b)
+            // .then(function(response){
+            //     response.text()
+            //     .then(function (ans) {
+            //         element.innerHTML = ans
+            //     })
+            // })
+            
+        }
+    </script>
+    <head>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Montserrat">
+    </head>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            margin: 16px;
+            border-radius: 4px;
+            background-color: rgb(242, 242, 241);
+        }
+        .input {
+            padding: 8px;
+            margin: 16px;
+            border-radius: 4px;
+        }
+        .text {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-weight: 700;
+            color: #1e1e1e;
+            font-family: 'Montserrat';
+        }
+        .output {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-weight: 700;
+            color: purple;
+            font-family: 'Montserrat';
+        }
+        .text2 {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-weight: 700;
+            color: #414141;
+            font-family: 'Montserrat';
+        }
+        .btn {
+            padding: 8px;
+            cursor: pointer;
+            color: white;
+            border-radius: 8px;
+            border: 0px solid;
+            font-weight: 700;
+            background: #1e1e1e;
+            font-family: 'Montserrat';
+        }
+        .btn:hover {
+            background: purple;
+        }
+        h1{
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-weight: bold;
+            color: #1e1e1e;
+            font-family: 'Montserrat';
+        }
+    </style>
+    <body>
+        
+        <div class="container">
+        <h1>Calculate Sum</h1>
+        <div class="text">First Number</div>
+        <input class="input" id="first" type="text"></input>
+        <div class="text">Second Number</div>
+        <input class="input" id="second" type="text"></input>
+        <button class="btn" onclick="populateDiv()">Calculate Sum</button>
+        <div class="text2" id="finalSumText">Final Sum:</div>
+        <div id="finalSum" class="output"></div>
+        </div>
+    </body>
+</html>
