@@ -5,6 +5,7 @@ const express = require("express")
 const {getTodos, createTodo, markTodo, deleteTodo, updateTodo} = require("./routes/manageTodos")
 const {zodcreateTodo, zodupdateTodo, zodcheckId} = require("../backend/types")
 const app = express()
+const cors = require("cors")
 
 //middlewares
 
@@ -34,8 +35,9 @@ function checkTodoId(req,res,next){
     }
     next()
 }
-
+app.use(cors())
 app.use(express.json())
+
 
 app.post("/todo", checkCreatereq , createTodo)
 

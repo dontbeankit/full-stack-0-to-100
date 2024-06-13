@@ -1,0 +1,27 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    
+    background-color: white;
+    border-radius: 8px;
+}
+input{
+    padding: 8px;
+    border-radius:8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+button{
+    background: #9c13bf;
+    border: 0; 
+    max-height: fit-content;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding: 8px;
+    color: white; 
+    border-radius:8px;
+}
