@@ -4,12 +4,18 @@ const zod = require("zod");
 
 const createTodo = zod.object({
     title: zod.string(),
-    description: zod.string(),
-    done: zod.boolean()
+    description: zod.string()
 })
 
 const updateTodo = zod.object({
-    id: zod.string(),
+    _id: zod.string(),
+    done: zod.boolean()
 })
 
-module.exports = {createTodo: createTodo, updateTodo: updateTodo}
+const zodcheckId = zod.object({
+    _id: zod.string(),
+    title: zod.string().optional(),
+    description: zod.string().optional()
+})
+
+module.exports = {zodcreateTodo: createTodo, zodupdateTodo: updateTodo, zodcheckId}
