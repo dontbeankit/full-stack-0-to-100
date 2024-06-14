@@ -2,7 +2,7 @@ const { Todo } = require("../db/db")
 
 async function getTodos(req, res){
 
-    const result = await Todo.find({}).sort({'createdAt': 'desc'})
+    const result = await Todo.find({}).sort({'createdAt': -1})
 
     if(result){
         res.status(200).send(result)
@@ -22,7 +22,7 @@ async function createTodo(req, res){
     })
 
     if(result){
-        res.status(200).send({msg:"Success! Todo added"})
+        res.status(200).send({todo:result,msg:"Success! Todo added"})
     }
     else{
         res.status(403).send({msg:"Oops! Something went wrong"})

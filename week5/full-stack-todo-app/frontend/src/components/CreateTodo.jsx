@@ -19,7 +19,7 @@ export function CreateTodo(props){
             
         }).then(async function(res){
             const json = await res.json()
-            props.updateTodo([...props.todos,json])
+            props.updateTodos(json.todo)
             alert(json.msg)
         })
     }

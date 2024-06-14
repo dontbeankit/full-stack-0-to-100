@@ -1,26 +1,20 @@
+import React from "react"
+import { TodoItem } from "./TodoItem"
 import "./todolist.css"
 
-export function TodoList(props){
-    const todos = props.todos
-    console.log(todos)
+export const TodoList = React.memo(function TodoList(props){
+    //const todos = props.todos
+    console.log(props.todos)
+
+    
 
     return ( 
     <div> 
-        {todos && todos.map((todo)=>{
-            return  <div key={todo.id} className={todo.done != true ? "item-container" : "item-container-done"}>
-                <div>
-                    <h3>{todo.title}</h3>
-                    <p>{todo.description}</p>
-                </div>
-                <div>
-                <button className={todo.done != true ? "markbutton" : "undobutton"}><span className="material-symbols-outlined">{todo.done != true ? "check" : "redo"}</span></button>
-                </div>
-            
-            
-        </div>
+        {props.todos && props.todos.map((todo)=>{
+            return <TodoItem todo={todo} deleteContent={props.removeTodo} />
         })}
-        {!todos && <div>Network Error</div>}
+        {!props.todos && <div>Network Error</div>}
     </div>
         
     )
-}
+})

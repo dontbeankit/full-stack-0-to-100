@@ -2,9 +2,10 @@ import { CreateTodo } from "../components/CreateTodo";
 import { TodoList } from "../components/Todolist";
 import { useEffect, useState } from 'react'
 import './home.css'
+import React from "react";
 
 
-export function Home(){
+export const Home = React.memo(function Home(){
     const [todos, setTodos] = useState([])
     
     useEffect(()=> {
@@ -15,12 +16,31 @@ export function Home(){
       setTodos(json)
     }
     list()
-    }, [todos])
+    }, [])
+    
+    function updateTodos(newTodo){
+        console.log("re-rendering UT")
+        setTodos([newTodo,...todos])
+    }
+
+    function removeTodo(newTodo){
+        console.log("re-rendering RT")
+        const modtodos = todos.filter((todo)=>{
+            if(todo._id==newTodo._id){
+                return false
+            }
+            else{
+                return true
+            }
+        })
+        setTodos(modtodos)
+        
+    }
 
     return(
         <div className="container-body">
-            <CreateTodo  todos={todos} updateTodos={setTodos}/>
-            <TodoList todos={todos}/>
+            <CreateTodo  todos={todos} updateTodos={updateTodos}/>
+            <TodoList todos={todos} removeTodo={removeTodo}/>
         </div>
     )
-}
+})
