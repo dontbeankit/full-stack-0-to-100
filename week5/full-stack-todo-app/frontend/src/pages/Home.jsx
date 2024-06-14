@@ -23,6 +23,15 @@ export const Home = React.memo(function Home(){
         setTodos([newTodo,...todos])
     }
 
+    function changeDoneTodos(todo){
+        //const modtodos = todos
+        //todo.done = !todo.done
+        //const foundIndex = todos.findIndex(x => x._id == todo._id);
+        //modtodos[foundIndex].done = !modtodos[foundIndex].done
+        //console.log("re-rendering CDT"+modtodos[foundIndex].done)
+        //setTodos(modtodos)
+    }
+
     function removeTodo(newTodo){
         console.log("re-rendering RT")
         const modtodos = todos.filter((todo)=>{
@@ -40,7 +49,7 @@ export const Home = React.memo(function Home(){
     return(
         <div className="container-body">
             <CreateTodo  todos={todos} updateTodos={updateTodos}/>
-            <TodoList todos={todos} removeTodo={removeTodo}/>
+            <TodoList todos={todos} removeTodo={removeTodo} changeDoneTodos={changeDoneTodos}/>
         </div>
     )
 })

@@ -11,7 +11,7 @@ export const TodoList = React.memo(function TodoList(props){
     return ( 
     <div> 
         {props.todos && props.todos.map((todo)=>{
-            return <TodoItem todo={todo} deleteContent={props.removeTodo} />
+            return <TodoItem key={todo._id} todo={todo} deleteContent={props.removeTodo} changeDoneTodos={props.changeDoneTodos} />
         })}
         {!props.todos && <div>Network Error</div>}
     </div>
