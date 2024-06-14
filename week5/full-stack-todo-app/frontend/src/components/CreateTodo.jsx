@@ -28,7 +28,7 @@ export function CreateTodo(){
         <div className="form">
             <input type="text" placeholder="Enter title" onChange={ function(e){ setTitle(e.target.value) } } />
             <input type="text" placeholder="Enter description" onChange={ function(e){ setDesc(e.target.value) } }/>
-            <button onClick={createHandler}>Create Todo</button>
+            <button onClick={createHandler}><span className="material-symbols-outlined">add</span></button>
         </div>
     )
 }

@@ -19,10 +19,20 @@ function App() {
 
   return (
     <div>
+      <Header />
       <Home todos={todos}/>
     </div>
     
   )
+}
+
+function Header(){
+  return (<header>
+    <div className='container'>
+      <h2>Procastinot</h2>
+    </div>
+    
+  </header>)
 }
 
 export default App
