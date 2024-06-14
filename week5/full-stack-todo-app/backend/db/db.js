@@ -9,7 +9,7 @@ const todoSchema = new mongo.Schema({
     title: String,
     description: String,
     done: Boolean
-},timestamps=true)
+},{ timestamps: true })
 
 const Todo = mongo.model('todos', todoSchema);
 

@@ -7,7 +7,7 @@ export function TodoList(props){
     return ( 
     <div> 
         {todos && todos.map((todo)=>{
-            return  <div className={todo.done != true ? "item-container" : "item-container-done"}>
+            return  <div key={todo.id} className={todo.done != true ? "item-container" : "item-container-done"}>
                 <div>
                     <h3>{todo.title}</h3>
                     <p>{todo.description}</p>

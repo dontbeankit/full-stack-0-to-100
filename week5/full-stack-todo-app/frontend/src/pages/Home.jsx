@@ -6,8 +6,8 @@ import './home.css'
 
 export function Home(){
     const [todos, setTodos] = useState([])
-    useEffect(()=> {
     
+    useEffect(()=> {
     let list = async()=>{
       const response = await fetch("http://localhost:4000/todos")
       const json = await response.json()
@@ -15,11 +15,11 @@ export function Home(){
       setTodos(json)
     }
     list()
-    }, [])
+    }, [todos])
 
     return(
         <div className="container-body">
-            <CreateTodo/>
+            <CreateTodo  todos={todos} updateTodos={setTodos}/>
             <TodoList todos={todos}/>
         </div>
     )

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./createTodo.css"
-export function CreateTodo(){
+export function CreateTodo(props){
 
     const [title, setTitle]= useState("")
     const [desc, setDesc]= useState("")
@@ -19,7 +19,7 @@ export function CreateTodo(){
             
         }).then(async function(res){
             const json = await res.json()
-            console.log(title+desc)
+            props.updateTodo([...props.todos,json])
             alert(json.msg)
         })
     }

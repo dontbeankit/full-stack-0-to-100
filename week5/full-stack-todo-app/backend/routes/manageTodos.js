@@ -2,7 +2,7 @@ const { Todo } = require("../db/db")
 
 async function getTodos(req, res){
 
-    const result = await Todo.find({})
+    const result = await Todo.find({}).sort({'createdAt': 'desc'})
 
     if(result){
         res.status(200).send(result)
