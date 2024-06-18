@@ -1,20 +1,44 @@
-import { useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React, { useState, Suspense } from "react"
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import './App.css'
-import { Dashboard } from './components/Dashboard'
-import { Landing } from './components/Landing'
+const Dashboard = React.lazy(()=> import("./components/Dashboard"))
+const Landing = React.lazy(()=> import("./components/Landing"))
 
 function App() {
   const [count, setCount] = useState(0)
-
+  
+  //suspense API
   return (
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
+      <Header />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/" element={<Landing/>}/>
+        <Route path="/dashboard" element={<Suspense fallback={"loading..."}>
+          <Dashboard/>
+          </Suspense>}/>
+        <Route path="/" element={<Suspense fallback={"loading..."}>
+          <Landing/>
+          </Suspense>}/>
       </Routes>
     </BrowserRouter>
+    </div>
+    
   )
 }
+
+function Header(){
+  const navigate = useNavigate()
+
+  return (
+      <div style={{ color:"white", background: "black"}}>
+        Header
+        <button onClick={()=>{
+          navigate("/Dashboard")
+        }}>Dashboard</button>
+        <button onClick={()=>{
+          navigate("/")
+        }}>Landing</button>
+      </div>
+  )}
 
 export default App
