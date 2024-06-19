@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { atom, selector } from 'recoil'
+import { atom, atomFamily, selector } from 'recoil'
 
 export const notifications = atom({
     key: "notifications",
@@ -11,6 +11,8 @@ export const notifications = atom({
         }
     })
 })
+
+
 
 export const totalNotifications = selector({
     key: 'totalNotifications',
