@@ -1,0 +1,7 @@
+.container-body {
+    background-color: rgb(247, 247, 247);
+    display:grid;
+    gap: 24px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
