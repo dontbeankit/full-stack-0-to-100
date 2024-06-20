@@ -1,14 +1,10 @@
 const { Router } = require("express");
 const userRouter = Router();
 const zod = require('zod');
-const { User } = require("../db");
+const { User, Account } = require("../db");
 const { jwt } = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 const { authMiddleware } = require("../middleware");
-
-userRouter.get('login',(req,res)=>{
-
-})
 
 function validateUserSignUp(req,res, next){
     const UserSchema = zod.object({
@@ -43,6 +39,11 @@ userRouter.post('/signup', validateUserSignUp, async (req,res)=>{
         password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+    })
+
+    await Account.create({
+        userID: req.body.username,
+        balance: 1 + Math.random() * 10000
     })
 
     const userId = user._id;
@@ -154,7 +155,16 @@ userRouter.get('/payto',authMiddleware, async (req,res)=>{
             lastName: user.lastName,
             _id: user._id
         }))
+    })
 
 })
+
+const transferFunds = async (fromAccountId, toAccountId, amount) => {
+    // Decrement the balance of the fromAccount
+	  await Account.findByIdAndUpdate(fromAccountId, { $inc: { balance: -amount } });
+
+    // Increment the balance of the toAccount
+    await Account.findByIdAndUpdate(toAccountId, { $inc: { balance: amount } });
+}
 
 module.exports = {userRouter}
