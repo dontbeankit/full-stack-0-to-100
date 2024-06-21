@@ -2,9 +2,11 @@
 function App() {
 
   return (
-    <div>
-        Hello world
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route></Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
 
