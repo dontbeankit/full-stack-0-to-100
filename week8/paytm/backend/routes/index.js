@@ -1,19 +1,10 @@
 const { Router } = require("express");
 const mainRouter = Router();
-const { userRouter } = require("./routes/user");
+const { userRouter } = require("./user");
+const accRouter = require("./account");
 
 mainRouter.use('/user',userRouter)
-mainRouter.use('/account',accRouter)
+mainRouter.use('/account', accRouter)
 
 
-mainRouter.get('login',(req,res)=>{
-
-})
-
-mainRouter.post('signup',(req,res)=>{
-    
-})
-
-mainRouter.post('signup',(req,res)=>{
-    
-})
+module.exports = { mainRouter }

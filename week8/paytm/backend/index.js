@@ -12,5 +12,5 @@ app.use("/api/v1", mainRouter);
 
 app.listen(3000, function (err) {
     if (err) console.log(err);
-    console.log("Server listening on PORT", PORT);
+    console.log("Server listening on PORT", 3000);
 });

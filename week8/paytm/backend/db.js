@@ -2,7 +2,7 @@ const mongo = require("mongoose");
 
 mongo.connect('mongodb+srv://ankitrath52:Ankitmaster72$@mern-app.vfwjbld.mongodb.net/akropay')
 
-userSchema = new mongoose.Schema({
+userSchema = new mongo.Schema({
     username: {
         type: String,
         required: true,
@@ -33,7 +33,7 @@ userSchema = new mongoose.Schema({
 
 const accountSchema = new mongo.Schema({
     userID: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongo.Schema.Types.ObjectId,
         required: true,
         ref: 'User'//refers to the User table's username, if user doesnt exist, cant add
     },
@@ -53,6 +53,6 @@ const accountSchema = new mongo.Schema({
 // errors by storing integers in your DB
 
 const User = mongo.model("User", userSchema)
-const Account = mongo.model("Account", userSchema)
+const Account = mongo.model("Account", accountSchema)
 
 module.exports = { User, Account }
