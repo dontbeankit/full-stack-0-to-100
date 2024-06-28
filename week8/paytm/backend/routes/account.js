@@ -12,7 +12,8 @@ accRouter.get("/balance", authMiddleware, async (req, res) => {
     });
 
     res.json({
-        balance: account.balance
+        balance: Math.round((account.balance + Number.EPSILON) * 100) / 100
+        
     })
 });
 

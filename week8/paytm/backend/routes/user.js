@@ -54,7 +54,9 @@ userRouter.post('/signup', validateUserSignUp, async (req,res)=>{
     
         return res.status(200).json({
             message: "User created successfully",
-            token: token
+            token: token,
+            firstName: newUser.firstName,
+            lastName: newUser.lastName
         }) 
     }
     
@@ -95,7 +97,9 @@ userRouter.post('/login',validateUserLogin, async (req,res)=>{
 
             return res.status(200).json({
                 message: "User logged in successfully",
-                token: token
+                token: token,
+                firstName: user.firstName,
+                lastName: user.lastName
             }) 
         }
         
