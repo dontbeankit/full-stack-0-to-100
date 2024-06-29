@@ -22,7 +22,7 @@ interface Person {
     greet(phrase: string): void;
 }
 
-class Employee implements Person {
+class Employee1 implements Person {
     name: string;
     age: number;
 
