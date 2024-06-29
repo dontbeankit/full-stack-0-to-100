@@ -36,7 +36,7 @@ export function Login(){
       }
     }
     catch(e){
-      console.log(e)
+      console.log(e )
 toast.current.show({ severity: "error", summary: 'Error', detail: 'Oops, something went wrong, please try again later.' });
     }
   }
